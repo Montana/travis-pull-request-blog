@@ -43,4 +43,4 @@ Assuming you want to build all PRs, something like the following will do the tri
 if: (type = push AND branch IN (master, dev)) OR (type = pull_request AND NOT branch =~ /no-ci/)
 ```
 
-This will attempt a push build on all pushes and a PR build on all pushes to an open PR, but will filter out any that don't meet the conditionals you set it place. Read more about conditional builds [https://docs.travis-ci.com/user/conditional-builds-stages-jobs/](here).
+This will attempt a push build on all pushes and a PR build on all pushes to an open PR, but will filter out any that don't meet the conditionals you set it place. Read more about conditional builds [here](https://docs.travis-ci.com/user/conditional-builds-stages-jobs/).
