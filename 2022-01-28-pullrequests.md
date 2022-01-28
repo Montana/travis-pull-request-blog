@@ -19,10 +19,18 @@ One thing you might want when using Travis or any CI tool is to prevent broken c
 
 <!-- more --> 
 
-## What is OpenShift 
+## Branch Protection 
 
-OpenShift is an abstraction layer on top of Kubernetes (k8s) and provides a useful user interface that in all honesty, `k8s` sometimes lacks.
+Branch protection is something you may not know about, you can create a branch protection rule to enforce certain workflows for one or more branches. So for example  we want `status checks` to pass before merging, let's take a look in GitHub: 
 
-![image](https://user-images.githubusercontent.com/20936398/150585092-43b53bfa-0c05-4732-a3f1-0067cbf22e61.png)
+![image](https://user-images.githubusercontent.com/20936398/151615618-93853954-2162-4e62-9507-84659ae06151.png)
 
-For reference, look at this simple hierarchical graph to get a better grasp on what OpenShift does.
+This will enforce that the status check pass is required before anything gets merged to a branch. 
+
+## 2 Branches or 1 Branch? 
+
+By default in Travis GUI, you'll see both boxes enabled, this is due to the fact that Travis is running a build on the `branch` and a build on the `pull request`:
+
+<img width="918" alt="Screen Shot 2022-01-28 at 12 22 09 PM" src="https://user-images.githubusercontent.com/20936398/151616036-d207c17f-7708-4770-a823-bab2348866ad.png">
+
+Leaving it on will allow you to fully explore all the deploy/branching options we have to offer. 
