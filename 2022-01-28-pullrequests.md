@@ -33,4 +33,14 @@ By default in Travis GUI, you'll see both boxes enabled, this is due to the fact
 
 <img width="918" alt="Screen Shot 2022-01-28 at 12 22 09 PM" src="https://user-images.githubusercontent.com/20936398/151616036-d207c17f-7708-4770-a823-bab2348866ad.png">
 
-Leaving it on will allow you to fully explore all the deploy/branching options we have to offer. 
+Leaving it on will allow you to fully explore all the deploy/branching options we have to offer. What if you want the opposite though? To build on a pull request without redundancy? 
+
+## Build Pull Requests and Merges to the Master Branch 
+
+Assuming you want to build all PRs, something like the following will do the trick, you'll need to enable both the branch and PR builds on the settings page like we showed above, but have all boxes ticked, and put this line as the first line in your `travis.yml`:
+
+```bash
+if: (type = push AND branch IN (master, dev)) OR (type = pull_request AND NOT branch =~ /no-ci/)
+```
+
+This will attempt a push build on all pushes and a PR build on all pushes to an open PR, but will filter out any that don't meet the conditionals you set it place. Read more about conditional builds [https://docs.travis-ci.com/user/conditional-builds-stages-jobs/](here).
